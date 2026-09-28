@@ -20,10 +20,29 @@ int dp[N] ;
     bool wordBreak(string s, vector<string>& wd) {
         int n = s.size();
         unordered_set<string> hash;
-        memset(dp,-1,sizeof(dp)) ;
+        // memset(dp,-1,sizeof(dp)) ;
+        vector<int>dp(n+1,false) ;
+        dp[n] = true ;
+        
         for (auto& it : wd) {
             hash.insert(it);
         }
-        return func(0, s, wd , hash);
+        for(int i = n-1 ; i>=0 ; i--)
+        {
+            for(int take = 1 ; take<=n ; take++)
+            {
+                string sub = s.substr(i,take) ;
+                if(hash.find(sub)!=hash.end())
+                {
+                    if(i+take>=n || dp[i+take]==true)
+                    {
+                        dp[i] = true ;
+                        break ;
+                    }
+                }
+            }
+        }
+        return dp[0] ;
+        // return func(0, s, wd , hash);
     }
 };
