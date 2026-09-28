@@ -6,7 +6,7 @@ public:
         {
             sq[i] = i*i ;
         }
-        vector<vector<int>>dp(105,vector<int>(n+1,1e9)) ;
+        vector<vector<int>>dp(105,vector<int>(n+1,1e5)) ;
         for(int i = 0 ; i <= 104 ; i++)
         {
             dp[i][0] = 0 ;
