@@ -12,28 +12,28 @@ void func(int ind , int ab , int remove , string&s , string&temp , set<string>&a
     {
         return ;
     }
+
     if(s[ind]!='(' && s[ind]!=')') 
     {
          temp.push_back(s[ind]) ;
         func(ind+1,ab,remove,s,temp,ans) ;
-        temp.pop_back() ;
+         temp.pop_back() ;
     }
+    else{
     if(s[ind]=='(')
     {
          temp.push_back(s[ind]) ;
        func(ind+1,ab+1,remove,s,temp,ans) ;  
        temp.pop_back() ;
-        if(remove>0)
-        {
-            func(ind+1,ab,remove-1,s,temp,ans) ;
-        }
-    }
+    } 
     if(s[ind]==')')
     {
           temp.push_back(s[ind]) ;
        func(ind+1,ab-1,remove,s,temp,ans) ;  
        temp.pop_back() ;
-        if(remove>0)
+    
+    }
+     if(remove>0)
         {
             func(ind+1,ab,remove-1,s,temp,ans) ;
         }
