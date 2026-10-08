@@ -18,26 +18,31 @@ void func(int ind , int ab , int remove , string&s , string&temp , set<string>&a
          temp.push_back(s[ind]) ;
         func(ind+1,ab,remove,s,temp,ans) ;
          temp.pop_back() ;
+         return;
     }
-    else{
+
     if(s[ind]=='(')
     {
+            if(remove>0)
+        func(ind+1,ab,remove-1,s,temp,ans) ;
          temp.push_back(s[ind]) ;
        func(ind+1,ab+1,remove,s,temp,ans) ;  
        temp.pop_back() ;
     } 
     if(s[ind]==')')
     {
+            if(remove>0)
+        func(ind+1,ab,remove-1,s,temp,ans) ;
           temp.push_back(s[ind]) ;
        func(ind+1,ab-1,remove,s,temp,ans) ;  
        temp.pop_back() ;
     
     }
-     if(remove>0)
+ 
         {
-            func(ind+1,ab,remove-1,s,temp,ans) ;
+            
         }
-    }
+    
     return  ;
 }
     vector<string> removeInvalidParentheses(string s) {
