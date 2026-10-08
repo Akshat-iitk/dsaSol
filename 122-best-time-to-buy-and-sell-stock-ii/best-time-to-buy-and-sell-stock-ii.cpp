@@ -21,6 +21,16 @@ int func(int ind , bool buy , vector<int>& prices)
 }
     int maxProfit(vector<int>& prices) {
         memset(dp,-1,sizeof(dp)) ;
+        int profit = 0 ;
+        int n = prices.size() ;
+        for(int i = 0 ; i < n-1 ; i++)
+        {
+            if(prices[i]<prices[i+1])
+            {
+                profit+=prices[i+1]-prices[i] ;
+            }
+        }
+        return profit ;
         return func(0,1,prices) ;
     }
 };
