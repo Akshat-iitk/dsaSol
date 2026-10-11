@@ -14,8 +14,8 @@ public:
     }
 
     string get(string key, int timestamp) {
-        // if (mp.find(key) == mp.end())
-        //     return "";
+        if (mp.find(key) == mp.end())
+            return "";
         vector<pair<int, string>> &temp = mp[key];
         int low = 0;
         int high = temp.size() - 1;
