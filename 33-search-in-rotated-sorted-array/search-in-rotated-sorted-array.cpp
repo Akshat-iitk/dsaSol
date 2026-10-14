@@ -7,9 +7,7 @@ public:
         while (low <= high) {
             int mid = low + (high-low)/2 ;
             if(arr[mid]==target) return mid ;
-            if(arr[low]==target) return low ;
-            if(arr[high]==target) return high ;
-            if(arr[mid]>arr[low])
+            if(arr[mid]>=arr[low])
             {
                 if(target>=arr[low] && target<arr[mid])high=mid-1 ;
                 else low = mid+1 ;
