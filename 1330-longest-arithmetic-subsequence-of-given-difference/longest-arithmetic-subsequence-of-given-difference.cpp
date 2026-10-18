@@ -12,8 +12,8 @@ public:
             {
                 dp[i] = max(dp[i],dp[mp[arr[i]-diff]]+1) ;
             }
-            //  if(mp.find(arr[i])==mp.end()) 
-            mp[arr[i]] = i ;
+       
+                mp[arr[i]] = i ;
             ans = max(ans,dp[i]) ;
         }
         return ans ;
