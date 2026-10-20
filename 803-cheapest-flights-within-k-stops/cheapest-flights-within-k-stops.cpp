@@ -7,14 +7,15 @@ public:
             graph[it[0]].push_back({it[1],it[2]}) ;
         }
         vector<int> fare(n,1e9) ;
+        queue<pair<int,pair<int,int>>> pq ;
        queue<pair<int,pair<int,int>>> q ;
           fare[src] = 0 ;
-     q.push({0,{-1,src}}) ;
-     while(!q.empty())
+     pq.push({0,{-1,src}}) ;
+     while(!pq.empty())
      {
-           auto it = q.front() ;
+           auto it = pq.front() ;
         //    q.erase(q.begin());
-        q.pop() ;
+            pq.pop() ;
            int node_fare = it.first ;
            int node_dis = it.second.first ;
            int node = it.second.second ;
@@ -28,10 +29,10 @@ public:
            {
                int curr_node = child.first ;
                int curr_fare = child.second ;
-               if(node_fare+curr_fare<fare[curr_node] && node_dis<k)
+               if(node_fare+curr_fare<=fare[curr_node] && node_dis<k)
                {
                    fare[curr_node]=node_fare+curr_fare ;
-                   q.push({fare[curr_node],{node_dis+1,curr_node}}) ;
+                   pq.push({fare[curr_node],{node_dis+1,curr_node}}) ;
                }
            }
      }
