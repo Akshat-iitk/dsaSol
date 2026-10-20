@@ -20,9 +20,7 @@ public:
            int node_dis = it.second.first ;
            int node = it.second.second ;
 
-            if (node_dis > k) {
-            continue; 
-        }
+           
         //    if(node==dst && node_dis<=k) return node_fare ; 
         //    if(node==dst && node_dis>k+1) continue ; /
            for(auto &child : graph[node])
