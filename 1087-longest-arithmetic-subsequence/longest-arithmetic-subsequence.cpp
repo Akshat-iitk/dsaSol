@@ -9,17 +9,17 @@ public:
             for(int j = 0 ; j < i ; j++)
             {
                 int diff = nums[i]-nums[j] ;
-                if(dp[j].find(diff)!=dp[j].end())
+                // if(dp[j].find(diff)!=dp[j].end())
                 {
                     dp[i][diff] = max(dp[i][diff],dp[j][diff]+1) ;
                 }
-                else {
-                    dp[i][diff] = max(dp[i][diff],2) ;
-                }
+                // else {
+                //     dp[i][diff] = max(dp[i][diff],2) ;
+                // }
                 ans = max(ans,dp[i][diff]) ;
             }
 
         }
-        return ans ;
+        return ans+1 ;
     }
 };
