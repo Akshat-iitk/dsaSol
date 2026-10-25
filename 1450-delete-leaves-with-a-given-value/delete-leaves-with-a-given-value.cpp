@@ -11,20 +11,18 @@
  */
 class Solution {
 public:
-TreeNode* func(TreeNode* root , int target , TreeNode* par)
+TreeNode* func(TreeNode* root ,int target)
 {
     if(root==NULL)return NULL ;
-   root->left =  func(root->left,target,par) ;
-    root->right =func(root->right,target,par) ;
-    if(root->left==NULL && root->right == NULL && root->val == target)
+   root->left =  func(root->left,target) ;
+   root->right = func(root->right,target) ;
+    if(root->left==NULL && root->right==NULL && root->val==target)
     {
-        root = NULL ;
-        return root ;
+        return NULL ;
     }
     return root ;
 }
     TreeNode* removeLeafNodes(TreeNode* root, int target) {
-       return func(root,target,NULL) ;
-        
+        return  func(root,target) ; 
     }
 };
